@@ -9,5 +9,6 @@ import java.io.Serializable;
  * @version 0.0.1
  * @since 0.0.1
  */
+// 登录响应类，继承自抽象响应类，实现序列化接口
 public class LoginResponse extends AbstractBaseResponse<LoginResponse> implements Serializable {
 }
