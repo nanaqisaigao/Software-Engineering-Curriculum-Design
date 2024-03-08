@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+':Main Admin: as Admin
+(Use the application) as (Use)
+
+User -> (Start)
+'User --> (Use)
+(Use) --> Student
+(Use) --> DormitoryManager
+(Use) --> Administor
+'Admin ---> (Use)
+
+'note right of Admin : This is an example.
+
+/'note right of (Use)
+A note can also
+be on several lines
+end note'/
+
+note "输入用户名密码\n选择用户类型." as N2
+(Start) .. N2
+N2 .. (Use)
+
+Student -> (学生查询)
+Student -> (宿舍查询)
+DormitoryManager ->(学生管理)
+DormitoryManager ->(宿舍管理)
+DormitoryManager ->(入住管理)
+Administor -> (学生管理)
+Administor -> (宿管管理)
+Administor -> (管理员管理)
+Administor -> (宿舍管理)
+Administor -> (入住管理)
+Administor -> (楼宇管理)
+@enduml

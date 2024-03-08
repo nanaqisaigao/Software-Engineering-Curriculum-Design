@@ -55,13 +55,17 @@ public class LoginController {
     @Autowired
     private DormitoryManagerRepository dormitoryManagerRepository;
 
-    @RequestMapping(method = RequestMethod.POST, path = "/login", produces = "application/json", consumes = "application/json")
+  //处理POST请求，路径为/login，返回类型为application/json，请求类型为application/json
+  @RequestMapping(method = RequestMethod.POST, path = "/login", produces = "application/json", consumes = "application/json")
     @ResponseBody
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest, HttpServletRequest request) {
         try {
+            // 调用doLogin()方法进行登录操作
             LoginResponse loginResponse = doLogin(loginRequest, request);
+            // 返回登录响应
             return new ResponseEntity(loginResponse, HttpStatus.OK);
         } catch (Exception e) {
+            // 登录失败，返回错误响应
             return new ResponseEntity(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

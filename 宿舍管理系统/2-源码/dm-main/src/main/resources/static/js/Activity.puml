@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+start
+switch (验证登录身份)
+case ( 管理员)
+  switch(管理员操作)
+
+case ( 条件 B )
+  :Text 2;
+case ( 条件 C )
+  :Text 3;
+case ( 条件 D )
+  :Text 4;
+case ( 条件 E )
+  :Text 5;
+endswitch
+
+
+
+
+
+if (Page.onSecurityCheck) then (true)
+  :Page.onInit();
+  if (isForward?) then (no)
+    :Process controls;
+    if (continue processing?) then (no)
+      stop
+    endif
+
+    if (isPost?) then (yes)
+      :Page.onPost();
+    else (no)
+      :Page.onGet();
+    endif
+    :Page.onRender();
+  endif
+else (false)
+endif
+
+if (do redirect?) then (yes)
+  :redirect process;
+else
+  if (do forward?) then (yes)
+    :Forward request;
+  else (no)
+    :Render page template;
+  endif
+endif
+
+stop
+
+@enduml
