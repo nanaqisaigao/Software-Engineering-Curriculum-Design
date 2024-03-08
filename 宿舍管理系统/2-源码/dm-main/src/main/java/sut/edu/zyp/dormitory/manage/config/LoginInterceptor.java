@@ -17,10 +17,17 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+//        return true;
+        String requestURI = request.getRequestURI();
+        if (requestURI.contains("/login.html")) {
+            return true;
+        }
         try {
             //通过session获取用户的已登录信息
             Object user = request.getSession().getAttribute("user");
+            System.out.println(user);
             Object type = request.getSession().getAttribute("userType");
+            System.out.println(type);
             //已登录信息不为空，说明已登录，不需要拦截
             if (user != null && type != null) {
                 return true;

@@ -15,8 +15,11 @@ import java.io.Serializable;
  * @version 0.0.1
  * @since 0.0.1
  */
+// 实体类
 @Entity
+// 实体类监听器
 @EntityListeners(AuditingEntityListener.class)
+// 表名
 @Table(name = "admin")
 public class AdminEntity extends AbstractBaseEntity implements Serializable {
 

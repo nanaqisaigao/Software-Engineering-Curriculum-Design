@@ -11,6 +11,9 @@ import sut.edu.zyp.dormitory.manage.entity.AdminEntity;
  * @version 0.0.1
  * @since 0.0.1
  */
+//@RepositoryRestResource注解将User实体映射到REST服务，
+// 其中collectionResourceRel属性指定该实体所在的资源相对路径，path属性指定该实体的独立资源路径。
+//@RepositoryRestResource仅适用于使用Spring Data JPA的实体类。
 @RepositoryRestResource(collectionResourceRel = "admin", path = "admin")
 public interface AdminRepository extends PagingAndSortingRepository<AdminEntity, String> {
 
